@@ -1,30 +1,62 @@
 {{#if siteSettings.signatures_enabled}}
-  <div class="control-group signatures">
-    <label class="control-label">{{i18n "signatures.enable_signatures"}}</label>
-    <div class="controls">
-      <label class="checkbox-label">
-        <Input @type="checkbox" @checked={{model.see_signatures}} />
-        {{i18n "signatures.show_signatures"}}
-      </label>
-    </div>
-  </div>
-  <div class="control-group signatures">
-    <label class="control-label">{{i18n "signatures.my_signature"}}</label>
-    <div class="controls bio-composer input-xxlarge">
-      {{#if siteSettings.signatures_advanced_mode}}
-        <DEditor
-          @value={{model.custom_fields.signature_raw}}
-          @showUploadModal="showUploadModal"
-        />
-      {{else}}
-        <label class="text-label">
-          <Input
-            @type="text"
-            class="input-xxlarge"
-            @value={{model.custom_fields.signature_url}}
-          />
+  {{#if currentUser.admin}}
+    <div class="control-group signatures">
+      <label class="control-label">{{i18n "signatures.enable_signatures"}}</label>
+      <div class="controls">
+        <label class="checkbox-label">
+          <Input @type="checkbox" @checked={{model.see_signatures}} />
+          {{i18n "signatures.show_signatures"}}
         </label>
-      {{/if}}
+      </div>
     </div>
-  </div>
+    <div class="control-group signatures">
+      <label class="control-label">{{i18n "signatures.my_signature"}}</label>
+      <div class="controls bio-composer input-xxlarge">
+        {{#if siteSettings.signatures_advanced_mode}}
+          <DEditor
+            @value={{model.custom_fields.signature_raw}}
+            @showUploadModal="showUploadModal"
+          />
+        {{else}}
+          <label class="text-label">
+            <Input
+              @type="text"
+              class="input-xxlarge"
+              @value={{model.custom_fields.signature_url}}
+            />
+          </label>
+        {{/if}}
+      </div>
+    </div>
+  {{/if}}
+  {{#if currentUser.moderator}}
+    <div class="control-group signatures">
+      <label class="control-label">{{i18n "signatures.enable_signatures"}}</label>
+      <div class="controls">
+        <label class="checkbox-label">
+          <Input @type="checkbox" @checked={{model.see_signatures}} />
+          {{i18n "signatures.show_signatures"}}
+        </label>
+      </div>
+    </div>
+    <div class="control-group signatures">
+      <label class="control-label">{{i18n "signatures.my_signature"}}</label>
+      <div class="controls bio-composer input-xxlarge">
+        {{#if siteSettings.signatures_advanced_mode}}
+          <DEditor
+            @value={{model.custom_fields.signature_raw}}
+            @showUploadModal="showUploadModal"
+          />
+        {{else}}
+          <label class="text-label">
+            <Input
+              @type="text"
+              class="input-xxlarge"
+              @value={{model.custom_fields.signature_url}}
+            />
+          </label>
+        {{/if}}
+      </div>
+    </div>
+  {{/if}}
 {{/if}}

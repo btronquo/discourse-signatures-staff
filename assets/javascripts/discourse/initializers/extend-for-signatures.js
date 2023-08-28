@@ -24,7 +24,6 @@ function attachSignature(api, siteSettings) {
     if (enabled) {
       if (siteSettings.signatures_advanced_mode) {
         return [
-          dec.h("hr"),
           dec.h(
             "div",
             new RawHtml({
@@ -34,7 +33,6 @@ function attachSignature(api, siteSettings) {
         ];
       } else {
         return [
-          dec.h("hr"),
           dec.h("img.signature-img", {
             attributes: { src: attrs.user_signature },
           }),
